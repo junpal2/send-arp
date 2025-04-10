@@ -85,7 +85,7 @@ int main(int argc, char* argv[]) {
 
 	char* dev = argv[1];
 	char errbuf[PCAP_ERRBUF_SIZE];
-	pcap_t* pcap = pcap_open_live(dev, 0, 0, 0, errbuf);
+	pcap_t* pcap = pcap_open_live(dev, BUFSIZ, 1, 1, errbuf);
 	if (pcap == nullptr) {
 		fprintf(stderr, "couldn't open device %s(%s)\n", dev, errbuf);
 		return EXIT_FAILURE;
